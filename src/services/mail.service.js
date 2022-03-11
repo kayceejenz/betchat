@@ -18,7 +18,7 @@ class MailService {
     const transporter = nodemailer.createTransport({
       host: mailer.HOST,
       port: mailer.PORT,
-      secure: mailer.SECURE,
+      service: mailer.SERVICE,
       auth: {
         user: mailer.USER,
         pass: mailer.PASSWORD

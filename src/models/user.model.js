@@ -6,16 +6,30 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema(
   {
-    name: {
+    fullname: {
       type: String,
       trim: true,
       required: [true, "Name is required"],
+    },
+    firstname:{
+      type: String
+    },
+    lastname:{
+      type: String
+    },
+    othername:{
+      type:String
     },
     email: {
       type: String,
       trim: true,
       unique: true,
       required: [true, "Email is required"],
+    },
+    phonenumber: {
+      type: String,
+      unique: true,
+      required: [true, "Phone number is required"]
     },
     password: {
       type: String,
