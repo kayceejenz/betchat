@@ -10,21 +10,35 @@ const { JWT_SECRET, BCRYPT_SALT, url } = require("./../config");
 
 
 class AuthService {
+
   // User sign up
   async signup(data) {
     let user = await User.findOne({ email: data.email })
     if (user) throw new CustomError("Email already exists");
 
-    user = new User(data);
+    // Get names
+    let names = data.fullname.split(" ");
+    data.firstname = names[0];
+    data.lastname = names[names.length - 1];
+    data.othername = names.length > 2 ? names[1] : "";
+    data.image = "https://res.cloudinary.com/carehive/image/upload/v1634745966/Image%20Templates/patient_qksset.png";
+    user = await userService.create(data);
+
+
+    // Generate jwt token
     const token = JWT.sign({ id: user._id, role: user.role }, JWT_SECRET);
-    await user.save();
 
     // Request email verification
     await this.RequestEmailVerification(user.email)
 
     return data = {
       uid: user._id,
+      fullname: user.fullname,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      othername: user.othername,
       email: user.email,
+      phonenumber: user.phonenumber,
       role: user.role,
       verified: user.isVerified,
       token: token
@@ -48,7 +62,12 @@ class AuthService {
 
     return data = {
       uid: user._id,
+      fullname: user.fullname,
+      firstname: user.firstname,
+      lastname: user.lastname,
+      othername: user.othername,
       email: user.email,
+      phonenumber: user.phonenumber,
       role: user.role,
       verified: user.isVerified,
       token: token
