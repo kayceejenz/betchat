@@ -43,6 +43,9 @@ const userSchema = new Schema(
       enum: ["user", "admin"],
       default: "user"
     },
+    interests:[{
+      type: String,
+    }],
     isActive: {
       type: Boolean,
       default: true,
