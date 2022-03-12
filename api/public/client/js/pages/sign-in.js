@@ -19,7 +19,7 @@ $("#loginbtn").on("click",(e)=> {
     $.each(inputs,(i,input) => {
         validStates.push(validate(input))
     })
-    isAllValid = validStates.every(true)
+    isAllValid = validStates.every((i,state) => { state ? true : false })
 
 
     if(isAllValid){
