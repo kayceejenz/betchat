@@ -12,6 +12,7 @@ app.use("/api", require("./api/src/routes"));
 
 // Ping route for testing connection
 app.get("/ping", (req, res) => res.status(200).send("Hello world!"));
+app.get("/auth/sign-in", (req,res) => res.sendFile(__dirname+"/public/client/pages/auth/sign-in.html"));
 
 // Serve swagger ui
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
