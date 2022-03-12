@@ -22,7 +22,7 @@ class AuthService {
     data.firstname = names[0];
     data.lastname = names[names.length - 1];
     data.othername = names.length > 2 ? names[1] : "";
-    data.image = "https://res.cloudinary.com/dewvs0nf9/image/upload/v1647040830/betchat/3rd-member_qpykal.png";
+    data.image = "https://betchat-backend-test.herokuapp.com/images/profile-image";
     user = await userService.create(data);
 
 
@@ -68,6 +68,7 @@ class AuthService {
       firstname: user.firstname,
       lastname: user.lastname,
       othername: user.othername,
+      interests: user.interests,
       email: user.email,
       phonenumber: user.phonenumber,
       role: user.role,

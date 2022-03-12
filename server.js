@@ -18,6 +18,9 @@ app.get("/feeds/index", (req,res) => res.sendFile(__dirname+"/api/public/client/
 
 // images
 app.get("/images/logo", (req,res) => res.sendFile(__dirname+"/api/public/client/images/logo.png"));
+app.get("/images/profile-image", (req,res) => res.sendFile(__dirname+"/api/public/client/images/image.png"));
+
+
 
 // css
 app.get("/css/bootstrap", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/bootstrap.min.css"));
