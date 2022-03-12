@@ -51,9 +51,7 @@ $("#signupbtn").on("click",(e)=> {
             success: response => {
                 if(response.success){
                     toastr.success(response.message)
-                }
-                else{
-                    toastr.error(response.message)
+                    location.href = "https://betchat-backend-test.herokuapp.com/auth/sign-in"
                 }
                 e.target.innerText = "Sign up"
             },

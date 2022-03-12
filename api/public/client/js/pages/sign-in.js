@@ -32,9 +32,8 @@ $("#loginbtn").on("click",(e)=> {
             success: response => {
                 if(response.success){
                     toastr.success("Login successful.")
-                }
-                else{
-                    toastr.error("Login successful.")
+                    localStorage.setItem('authenicatedUser',response.data);
+                    location.href = "https://betchat-backend-test.herokuapp.com/feeds/index"
                 }
                 e.target.innerText = "Sign in"
             },
