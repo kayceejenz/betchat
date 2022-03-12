@@ -10,7 +10,7 @@ class FeedService {
   }
 
   async getAll() {
-    return await Feed.find({}, { __v: 0 }).populate("postedBy","-__v -password");
+    return await Feed.find({}, { __v: 0 }).populate("postedBy","-__v -password").orderBy("desc");
   }
 
   async getOne(id) {
