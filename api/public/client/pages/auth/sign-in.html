@@ -49,16 +49,18 @@
   <body class="text-center">
     
 <main class="form-signin">
-  <form>
+  <form novalidate class="needs-validation">
     <img class="mb-4" src="../../images/logo.png" alt="" width="72" height="57">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
     <div class="form-floating">
       <input type="email" class="form-control" id="email" placeholder="name@example.com">
+      <div class="invalid-feedback">Emaill required</div>
       <label for="email">Email address</label>
     </div>
     <div class="form-floating">
       <input type="password" class="form-control" id="password" placeholder="Password">
+      <div class="invalid-feedback">Password required</div>
       <label for="password">Password</label>
     </div>
 
@@ -67,7 +69,10 @@
         <input type="checkbox" value="remember-me"> Remember me
       </label>
     </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit" id="loginbtn">Sign in</button>
+    <button class="w-100 btn btn-lg btn-primary" type="button" id="loginbtn">Sign in</button>
+    <hr>
+    <p>Don't have an account yet?</p>
+    <a class="w-100 btn btn-lg btn-success" href="./sign-up.html">Sign up</a>
     <p class="mt-5 mb-3 text-muted">&copy; BetChat Backend Test</p>
   </form>
 </main>
