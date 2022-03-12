@@ -38,6 +38,7 @@ class AuthService {
       firstname: user.firstname,
       lastname: user.lastname,
       othername: user.othername,
+      interests: user.interests,
       email: user.email,
       phonenumber: user.phonenumber,
       role: user.role,
