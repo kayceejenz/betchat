@@ -1,0 +1,557 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0",
+      "title": "BetChat",
+      "description": "Backend Test API Doc",
+      "contact": {
+        "email": "kcokolo10@gmail.com",
+        "name": "Precious Kosisochukwu Okolo",
+        "url": "https://linkedin.com/preciouskosiscohukwujenz"
+      }
+    },
+    "host": "betchat-backend-test.herokuapp.com",
+    "basePath": "/api",
+    "securityDefinitions": {},
+    "schemes": [
+      "https"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/auth/sign-up": {
+        "post": {
+          "description": "User's sign up endpoint",
+          "summary": "sign-up",
+          "tags": [
+            "Auth"
+          ],
+          "operationId": "sign-up",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "description": "payload",
+              "schema": {
+                "example": {
+                  "fullname": "",
+                  "email": "",
+                  "phonenumber": "",
+                  "password": "",
+                  "interests": ""
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "type": "object",
+                "default": ""
+              },
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/auth/sign-in": {
+        "post": {
+          "description": "User's login endpoint",
+          "summary": "sign-in",
+          "tags": [
+            "Auth"
+          ],
+          "operationId": "sign-in",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "description": "payload",
+              "schema": {
+                "example": {
+                  "email": "",
+                  "password": ""
+                },
+                "type": "object"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "type": "object",
+                "default": ""
+              },
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/feeds/": {
+        "get": {
+          "description": "",
+          "summary": "All feeds",
+          "tags": [
+            "Feeds"
+          ],
+          "operationId": "Allfeeds",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "type": "array",
+                "default": "",
+                "items": {
+                  "$ref": "#/definitions/Feeds"
+                }
+              },
+              "headers": {}
+            }
+          }
+        },
+        "post": {
+          "description": "Create new Feed",
+          "summary": "Create feed",
+          "tags": [
+            "Feeds"
+          ],
+          "operationId": "Createfeed",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "description": "payload",
+              "schema": {
+                "example": {
+                  "title": "",
+                  "body": ""
+                },
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Feeds"
+              },
+              "headers": {}
+            }
+          }
+        },
+        "put": {
+          "description": "Update feed data",
+          "summary": "Update feed",
+          "tags": [
+            "Feeds"
+          ],
+          "operationId": "Updatefeed",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "format": "uuid",
+              "description": "Feed id"
+            },
+            {
+              "name": "data",
+              "in": "body",
+              "required": true,
+              "description": "payload",
+              "schema": {
+                "example": "{\n\"title: \"\",\n\"body\": \"\"\n}",
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        },
+        "delete": {
+          "description": "Delete feed",
+          "summary": "Delete feed",
+          "tags": [
+            "Feeds"
+          ],
+          "operationId": "Deletefeed",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "format": "uuid",
+              "description": "Feed id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/Feeds"
+              },
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/feeds/:id": {
+        "get": {
+          "description": "Get feed details",
+          "summary": "Get single feed",
+          "tags": [
+            "Feeds"
+          ],
+          "operationId": "Getsinglefeed",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "Authorization",
+              "in": "header",
+              "required": false,
+              "default": "Bearer {token}",
+              "type": "string"
+            },
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "description": "Feed id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          }
+        }
+      },
+      "/": {
+        "get": {
+          "description": "Get all users",
+          "summary": "All users",
+          "tags": [
+            "Users"
+          ],
+          "operationId": "Allusers",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "",
+              "schema": {
+                "$ref": "#/definitions/User"
+              },
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      },
+      "/:userId": {
+        "get": {
+          "description": "User profile details",
+          "summary": "Get single user",
+          "tags": [
+            "Users"
+          ],
+          "operationId": "Getsingleuser",
+          "deprecated": false,
+          "produces": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "required": true,
+              "type": "string",
+              "format": "uuid",
+              "description": "User id"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "",
+              "headers": {}
+            }
+          },
+          "security": []
+        }
+      }
+    },
+    "definitions": {
+      "Feeds": {
+        "title": "Feeds",
+        "description": "Feed model",
+        "type": "object",
+        "properties": {
+          "_id": {
+            "description": "Feed id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "title": {
+            "description": "Feed title",
+            "type": "string"
+          },
+          "body": {
+            "description": "Feed body",
+            "type": "string"
+          },
+          "postedBy": {
+            "description": "Owner of the post",
+            "type": "string",
+            "format": "uuid"
+          },
+          "createdAt": {
+            "description": "Date time created",
+            "type": "string",
+            "format": "date"
+          },
+          "updatedAt": {
+            "description": "Date time last updated",
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "_id",
+          "title",
+          "body",
+          "postedBy",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "User": {
+        "title": "User",
+        "description": "User model",
+        "type": "object",
+        "properties": {
+          "_id": {
+            "description": "User's Id",
+            "type": "string",
+            "format": "uuid"
+          },
+          "fullname": {
+            "description": "User's fullname",
+            "example": "Joe Parker Smith",
+            "type": "string"
+          },
+          "firstname": {
+            "description": "User's firstname",
+            "example": "Joe",
+            "type": "string"
+          },
+          "lastname": {
+            "description": "User's lastname",
+            "example": "Parker",
+            "type": "string"
+          },
+          "Othername": {
+            "description": "User's othername",
+            "example": "Smith",
+            "type": "string"
+          },
+          "email": {
+            "description": "User's email",
+            "example": "example@domain.com",
+            "type": "string"
+          },
+          "phonenumber": {
+            "description": "User's phonenumber",
+            "example": "09xxxxxxxxxxx",
+            "type": "string"
+          },
+          "password": {
+            "description": "User's password",
+            "type": "string"
+          },
+          "image": {
+            "description": "User's image",
+            "type": "string"
+          },
+          "role": {
+            "description": "User's row",
+            "example": "user",
+            "type": "string"
+          },
+          "interests": {
+            "description": "User's interests",
+            "example": [
+              "Gaming",
+              "Betting"
+            ],
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "isActive": {
+            "description": "Activation status",
+            "example": true,
+            "type": "boolean",
+            "default": "true"
+          },
+          "isVerified": {
+            "description": "Email verification status",
+            "example": false,
+            "type": "boolean",
+            "default": "false"
+          },
+          "createdAt": {
+            "description": "Date time created",
+            "type": "string",
+            "format": "date"
+          },
+          "updatedAt": {
+            "description": "Date time last updated",
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "_id",
+          "fullname",
+          "Othername",
+          "email",
+          "phonenumber",
+          "password",
+          "image",
+          "role",
+          "interests",
+          "isActive",
+          "isVerified",
+          "createdAt",
+          "updatedAt"
+        ]
+      },
+      "Tokens": {
+        "title": "Tokens",
+        "description": "User email verification token",
+        "type": "object",
+        "properties": {
+          "_id": {
+            "description": "Token ID",
+            "type": "string",
+            "format": "uuid"
+          },
+          "userId": {
+            "description": "User's Id",
+            "type": "string"
+          },
+          "token": {
+            "description": "email verification token",
+            "type": "string"
+          },
+          "CreatedAt": {
+            "description": "Date time created",
+            "type": "string",
+            "format": "date"
+          }
+        },
+        "required": [
+          "_id",
+          "userId",
+          "token",
+          "CreatedAt"
+        ]
+      }
+    },
+    "tags": [
+      {
+        "name": "Auth",
+        "description": ""
+      },
+      {
+        "name": "Feeds",
+        "description": ""
+      },
+      {
+        "name": "Users",
+        "description": ""
+      }
+    ]
+  }
