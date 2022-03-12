@@ -41,7 +41,7 @@ $("#loginbtn").on("click",(e)=> {
             success: response => {
                 if(response.success){
                     toastr.success("Login successful.")
-                    localStorage.setItem('authenicatedUser',response.data);
+                    localStorage.setItem('authenicatedUser',JSON.stringify(response.data))
                     location.href = "https://betchat-backend-test.herokuapp.com/feeds/index"
                 }
                 e.target.innerText = "Sign in"
