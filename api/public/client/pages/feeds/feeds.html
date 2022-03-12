@@ -67,7 +67,18 @@
     <div class="py-5 text-center">
       <img class="d-block mx-auto mb-4" src="https://betchat-backend-test.herokuapp.com/images/logo" alt="" width="72" height="57">
       <h2>Feed Posts</h2>
-      <p class="lead">All feeds will appear here.</p>
+      <p class="lead" id="welcome"></p>
+      <div class="pull-right">
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="">Profile</a>
+              <a class="dropdown-item" href="#" id="logout">Logout</a>
+            </div>
+          </div>
+      </div>
     </div>
 
     <div class="row g-5">
@@ -119,5 +130,8 @@
 </div>
 
 
+<script src="https://betchat-backend-test.herokuapp.com/js/jquery"></script>
+<script src="https://betchat-backend-test.herokuapp.com/js/toastr"></script>
+<script src="https://betchat-backend-test.herokuapp.com/js/feeds"></script>
   </body>
 </html>
