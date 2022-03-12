@@ -1,6 +1,7 @@
+let authenicatedUser = {}
 $(function(){
     const serializedObject = localStorage.getItem("authenicatedUser");
-    const authenicatedUser = JSON.parse(serializedObject)
+    authenicatedUser = JSON.parse(serializedObject)
 
     const message = `Welcome ${authenicatedUser.fullname}, see feed posts by most recent`
     $("#dropdown01").html(authenicatedUser.fullname)
@@ -32,6 +33,7 @@ getFeeds = () =>{
     $("#loader").show()
     $.ajax({
         url:"https://betchat-backend-test.herokuapp.com/api/feeds/",
+        headers: {authorization: `Bearer ${authenicatedUser.token}`},
         type: "GET",
         success: response => {
             if(response.success){
@@ -95,6 +97,7 @@ getFeeds = () =>{
                     type: "POST",
                     dataType: "json",
                     contentType: "application/json;charset=utf-8",
+                    headers: {authorization: `Bearer ${authenicatedUser.token}`},
                     data: JSON.stringify(payload),
                     success: response => {
                         if(response.success){
