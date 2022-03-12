@@ -5,7 +5,7 @@ $(function(){
 
     const message = `Welcome ${authenicatedUser.fullname}, see feed posts by most recent`
     $("#dropdown01").html(authenicatedUser.fullname)
-
+    profile()
     getFeeds()
 })
 
@@ -27,6 +27,18 @@ validate = (input) => {
 
 passValidate = (status) => {
     return status ? true : false
+}
+
+profile = () => {
+    const nameTemplate = `<a href="#" class="list-group-item list-group-item-action">Fullname: <span class="pull-right">${authenicatedUser.fullname}</span></a>`
+    const emailTemplate = `<a href="#" class="list-group-item list-group-item-action">Email: <span class="pull-right">${authenicatedUser.email}</span></a>`
+    const phoneTemplate = `<a href="#" class="list-group-item list-group-item-action">Phone number:  <span class="pull-right">${authenicatedUser.phonenumber}</span></a>`
+    const interestsTemplate = `<a href="#" class="list-group-item list-group-item-action">Interests: <span class="pull-right">${authenicatedUser.interests.join(',')}</span></a>`
+
+    $("#profile").append(nameTemplate)
+    $("#profile").append(emailTemplate)
+    $("#profile").append(phoneTemplate)
+    $("#profile").append(interestsTemplate)
 }
 
 getFeeds = () =>{
