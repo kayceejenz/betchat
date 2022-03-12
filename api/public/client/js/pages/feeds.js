@@ -67,7 +67,7 @@ getFeeds = () =>{
         },
     })}
 
-    ("#postbtn").on("click",(e)=> {
+    $("#postbtn").on("click",(e)=> {
 
         e.preventDefault()
         let form = $("form")[0]
