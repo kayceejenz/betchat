@@ -9,6 +9,10 @@ validate = (input) => {
     }
 }
 
+passValidate = (status) => {
+    return status ? true : false
+}
+
 
 $("#loginbtn").on("click",(e)=> {
     e.preventDefault()
@@ -19,7 +23,7 @@ $("#loginbtn").on("click",(e)=> {
     $.each(inputs,(i,input) => {
         validStates.push(validate(input))
     })
-    isAllValid = validStates.every((i,state) => { return state ? true : false })
+    isAllValid = validStates.every(passValidate)
 
 
     if(isAllValid){
