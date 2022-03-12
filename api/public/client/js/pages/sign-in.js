@@ -9,7 +9,7 @@ $("#loginbtn").on("click",(e)=> {
     }
     else{
         $.ajax({
-            url:"https://betchat-backend-test.herokuapp.com/api/auth/sign-in",
+            url:"http://localhost:45831/api/auth/sign-in",
             method: "post",
             dataType: "json",
             contentType: "application/json",
