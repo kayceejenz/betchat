@@ -33,7 +33,7 @@ profile = () => {
     const nameTemplate = `<a href="#" class="list-group-item list-group-item-action">Fullname: <span class="pull-right">${authenicatedUser.fullname}</span></a>`
     const emailTemplate = `<a href="#" class="list-group-item list-group-item-action">Email: <span class="pull-right">${authenicatedUser.email}</span></a>`
     const phoneTemplate = `<a href="#" class="list-group-item list-group-item-action">Phone number:  <span class="pull-right">${authenicatedUser.phonenumber}</span></a>`
-    const interestsTemplate = `<a href="#" class="list-group-item list-group-item-action">Interests: <span class="pull-right">${authenicatedUser.interests.join(',')}</span></a>`
+    const interestsTemplate = `<a href="#" class="list-group-item list-group-item-action">Interests: <span class="pull-right">${authenicatedUser.interests}</span></a>`
 
     $("#profile").append(nameTemplate)
     $("#profile").append(emailTemplate)
