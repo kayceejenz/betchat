@@ -31,7 +31,7 @@ app.get("/js/toastr", (req,res) => res.sendFile(__dirname+"/api/public/client/js
 app.get("/js/bootstrap-tagsinput", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/bootstrap-tagsinput.min.js"));
 app.get("/js/signin", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-in.js"));
 app.get("/js/signup", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-up.js"));
-app.get("/js/signup", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/feeds.js"));
+app.get("/js/feeds", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/feeds.js"));
 
 
 
