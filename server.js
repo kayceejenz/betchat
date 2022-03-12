@@ -8,32 +8,31 @@ const { PORT } = process.env;
 require("./api/src/middlewares/pre-route.middleware")(app);
 
 // API routes
-app.use(require("./api/src/client/client.route"));
 app.use("/api", require("./api/src/routes"));
 
 
 // public files for client demo
-router.get("/auth/sign-in", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/auth/sign-in.html"));
-router.get("/auth/sign-up", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/auth/sign-up.html"));
-router.get("/feeds/index", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/feeds/feeds.html"));
+app.get("/auth/sign-in", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/auth/sign-in.html"));
+app.get("/auth/sign-up", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/auth/sign-up.html"));
+app.get("/feeds/index", (req,res) => res.sendFile(__dirname+"/api/public/client/pages/feeds/feeds.html"));
 
 // images
-router.get("/images/logo", (req,res) => res.sendFile(__dirname+"/api/public/client/images/logo.png"));
+app.get("/images/logo", (req,res) => res.sendFile(__dirname+"/api/public/client/images/logo.png"));
 
 // css
-router.get("/css/bootstrap", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/bootstrap.min.css"));
-router.get("/css/toastr", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/toastr.min.css"));
-router.get("/css/bootstrap-tagsinput", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/bootstrap-tagsinput.css"));
-router.get("/css/signin", (req,res) => res.sendFile(__dirname+"/api/public/client/css/pages/sign-in.css"));
+app.get("/css/bootstrap", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/bootstrap.min.css"));
+app.get("/css/toastr", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/toastr.min.css"));
+app.get("/css/bootstrap-tagsinput", (req,res) => res.sendFile(__dirname+"/api/public/client/css/dist/bootstrap-tagsinput.css"));
+app.get("/css/signin", (req,res) => res.sendFile(__dirname+"/api/public/client/css/pages/sign-in.css"));
 
 
 // js
-router.get("/js/jquery", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/jquery.min.js"));
-router.get("/js/toastr", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/toastr.min.js"));
-router.get("/js/bootstrap-tagsinput", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/bootstrap-tagsinput.min.js"));
-router.get("/js/signin", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-in.js"));
-router.get("/js/signup", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-up.js"));
-router.get("/js/feeds", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/feeds.js"));
+app.get("/js/jquery", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/jquery.min.js"));
+app.get("/js/toastr", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/toastr.min.js"));
+app.get("/js/bootstrap-tagsinput", (req,res) => res.sendFile(__dirname+"/api/public/client/js/libs/bootstrap-tagsinput.min.js"));
+app.get("/js/signin", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-in.js"));
+app.get("/js/signup", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/sign-up.js"));
+app.get("/js/feeds", (req,res) => res.sendFile(__dirname+"/api/public/client/js/pages/feeds.js"));
 
 
 // Serve swagger ui
