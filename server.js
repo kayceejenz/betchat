@@ -1,5 +1,7 @@
 require("express-async-errors");
 const app = require("express")();
+// const swaggerUi = require('swagger-ui-express'),
+//     swaggerDocument = require('./swagger.json');
 const { PORT } = process.env;
 
 // Pre-route middlewares
@@ -10,6 +12,9 @@ app.use("/api", require("./api/src/routes"));
 
 // Ping route for testing connection
 app.get("/ping", (req, res) => res.status(200).send("Hello world!"));
+
+// Serve swagger ui
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Error middlewares
 require("./api/src/middlewares/error.middleware")(app);
