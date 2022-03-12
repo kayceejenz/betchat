@@ -1,9 +1,11 @@
 validate = (input) => {
     if(input.value === ""){
         input.classList.add("is-invalid")
+        return false
     }
     else{
         input.classList.remove("is-invalid")
+        return true
     }
 }
 
@@ -12,12 +14,15 @@ $("#loginbtn").on("click",(e)=> {
     e.preventDefault()
     let form = $("form")[0]
     let inputs = $("form input");
+    let isAllValid = false;
+    let validStates = []
     $.each(inputs,(i,input) => {
-        validate(input)
+        validStates.push(validate(input))
     })
+    isAllValid = validStates.every(true)
 
 
-    if(form.checkValidity()){
+    if(isAllValid){
         e.target.innerText = "Authenticating..."
 
         const email = $("#email").val()
