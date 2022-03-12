@@ -4,7 +4,7 @@
   "description": "betchat is awesome! -  Made with BangaJS",
   "main": "server.js",
   "scripts": {
-    "start": "node -r dotenv/config server.js",
+    "start": "nodemon -r dotenv/config server.js",
     "dev": "nodemon -r dotenv/config server.js dotenv_config_path=./.env.dev"
   },
   "keywords": [],
