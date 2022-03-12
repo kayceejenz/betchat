@@ -27,7 +27,7 @@ $("#signupbtn").on("click",(e)=> {
     $.each(inputs,(i,input) => {
         validStates.push(validate(input))
     })
-    isAllValid = validStates.every((i,state) => { state ? true : false })
+    isAllValid = validStates.every((i,state) => { return state ? true : false })
     
     if(isAllValid){
         e.target.innerText = "Signing up..."
