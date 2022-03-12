@@ -4,6 +4,7 @@ const crypto = require("crypto")
 
 const User = require("./../models/user.model");
 const Token = require("./../models/token.model");
+const userService = require("../services/user.service");
 const MailServ = require("./../services/mail.service");
 const CustomError = require("./../utils/custom-error");
 const { JWT_SECRET, BCRYPT_SALT, url } = require("./../config");
@@ -21,7 +22,7 @@ class AuthService {
     data.firstname = names[0];
     data.lastname = names[names.length - 1];
     data.othername = names.length > 2 ? names[1] : "";
-    data.image = "https://res.cloudinary.com/carehive/image/upload/v1634745966/Image%20Templates/patient_qksset.png";
+    data.image = "https://res.cloudinary.com/dewvs0nf9/image/upload/v1647040830/betchat/3rd-member_qpykal.png";
     user = await userService.create(data);
 
 
@@ -29,7 +30,7 @@ class AuthService {
     const token = JWT.sign({ id: user._id, role: user.role }, JWT_SECRET);
 
     // Request email verification
-    await this.RequestEmailVerification(user.email)
+    // await this.RequestEmailVerification(user.email)
 
     return data = {
       uid: user._id,
