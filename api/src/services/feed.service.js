@@ -6,11 +6,11 @@ class FeedService {
   async create(data,user) {
     data.postedBy = user._id;
     const feed = await new Feed(data).save();
-    return feed.populate("postedBy","-__v -password")
+    return await this.getOne(feed._id)
   }
 
   async getAll() {
-    return await Feed.find({}, { __v: 0 }).populate("postedBy","-__v -password").orderBy("desc");
+    return await Feed.find({ $query: {}, $orderby: { createdAt : -1 }}).populate("postedBy","-__v -password")
   }
 
   async getOne(id) {
