@@ -1,0 +1,125 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Feeds</title>
+<style>
+
+.time {
+    font-size: 9px !important
+}
+
+.socials i {
+    margin-right: 14px;
+    font-size: 17px;
+    color: #d2c8c8;
+    cursor: pointer
+}
+
+.feed-image img {
+    width: 100%;
+    height: auto
+}
+</style>
+
+    
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../css/dist/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/dist/toastr.min.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="../../images/logo.png" sizes="180x180">
+    <link rel="icon" href="../../images/logo.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="../../images/logo.png" sizes="16x16" type="image/png">
+    <!-- <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json"> -->
+    <link rel="mask-icon" href="../../images/logo.png" color="#7952b3">
+    <link rel="icon" href="../../images/logo.png">
+    <meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>    
+  </head>
+  <body class="bg-light">
+    
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" src="../../images/logo.png" alt="" width="72" height="57">
+      <h2>Feed Posts</h2>
+      <p class="lead">All feeds will appear here.</p>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Create feed</span>
+        </h4>
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" id="title" placeholder="Title">
+          </div><br>
+          <div class="input-group">
+            <textarea class="form-control" row=3 placeholder="Body"></textarea>
+          </div><br>
+          <div class="input-group">
+            <button type="submit" class="btn btn-secondary">Post</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-lg-8">
+        <div class="container mt-4 mb-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-8">
+                    <div class="feed p-2">
+                        <div class="bg-white border mt-2">
+                            <div>
+                                <div class="d-flex flex-row justify-content-between align-items-center p-2 border-bottom">
+                                    <div class="d-flex flex-row align-items-center feed-text px-2"><img class="rounded-circle" src="https://i.imgur.com/aoKusnD.jpg" width="45">
+                                        <div class="d-flex flex-column flex-wrap ml-2"><span class="font-weight-bold">Thomson ben</span><span class="text-black-50 time">40 minutes ago</span></div>
+                                    </div>
+                                    <div class="feed-icon px-2"><i class="fa fa-ellipsis-v text-black-50"></i></div>
+                                </div>
+                            </div>
+                            <div class="p-2 px-3"><span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></div>
+                            <div class="d-flex justify-content-end socials p-2 py-3"><i class="fa fa-thumbs-up"></i><i class="fa fa-comments-o"></i><i class="fa fa-share"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mt-5 mb-3 text-muted">&copy; BetChat Backend Test</p>
+ 
+  </footer>
+</div>
+
+
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+      <script src="form-validation.js"></script>
+  </body>
+</html>
