@@ -7,11 +7,12 @@ $("#loginbtn").on("click",()=> {
     }
     else{
         $.ajax({
-            url:"localhost:3030/api/auth/sign-in",
+            url:"https://betchat-backend-test.herokuapp.com/api/auth/sign-in",
             method: "post",
             contentType: "application/json",
             data: { email: email, password: password },
             success: response => {
+                alert("here")
                 !response.success ? alert("Auth failed") : alert(response.message)
     
             },
