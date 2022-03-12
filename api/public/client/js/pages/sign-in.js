@@ -1,6 +1,7 @@
 
 $("#loginbtn").on("click",(e)=> {
     e.preventDefault()
+    e.target.innerText = "Authenticating..."
 
     const email = $("#email").val();
     const password = $("#password").val();
@@ -9,19 +10,24 @@ $("#loginbtn").on("click",(e)=> {
     }
     else{
         $.ajax({
-            url:"http://localhost:45831/api/auth/sign-in",
-            method: "post",
+            url:"https://betchat-backend-test.herokuapp.com/api/auth/sign-in",
+            type: "POST",
             dataType: "json",
-            contentType: "application/json",
-            data: { email: email, password: password },
+            contentType: "application/json;charset=utf-8",
+            data: JSON.stringify({ email: email, password: password }),
             success: response => {
-                alert("here")
-                !response.success ? alert("Auth failed") : alert(response.message)
-    
+                if(response.success){
+                    alert("Login success")
+                }
+                else{
+                    alert("Login failed")
+                }
+                e.target.innerText = "Sign in"
             },
             error: err => {
-                alert("An error occurred");
-            }
+                alert("Auth failed");
+                e.target.innerText = "Sign in"
+            },
         })
     }
  
