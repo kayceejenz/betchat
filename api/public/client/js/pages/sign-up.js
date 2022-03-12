@@ -1,18 +1,11 @@
 validate = (input) => {
-    const type = input.type
-    if(type === "checkbox"){
-        if(!input.checked){
-            input.classList.add("is-invalid")
-        }else{
-            input.classList.remove("is-invalid")
-        }
-    }else{
-        if(input.value === ""){
-            input.classList.add("is-invalid")
-        }
-        else{
-            input.classList.remove("is-invalid")
-        }
+    if(input.value === ""){
+        input.classList.add("is-invalid")
+        return false
+    }
+    else{
+        input.classList.remove("is-invalid")
+        return true
     }
 }
 
